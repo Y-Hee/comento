@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
-
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-
-
-<mapper namespace="com.myp.mapper.BoardMapper">
+<mapper namespace="com.cmt.mapper.BoardMapper">
 
 
 <insert id="create">
@@ -16,7 +12,7 @@ values(#{title},#{content}, #{writer})
 </insert>
 
 
-<select id="read" resultType="com.myp.domain.BoardVO">
+<select id="read" resultType="com.cmt.domain.BoardVO">
 select 
 	bno, title, content, writer, regdate, viewcnt 
 from 
@@ -36,7 +32,7 @@ delete from tbl_board where bno = #{bno}
 </delete>
 
 
-<select id="listAll" resultType="com.myp.domain.BoardVO">
+<select id="listAll" resultType="com.cmt.domain.BoardVO">
 <![CDATA[
 select 
 	bno, title, content, writer, regdate, viewcnt 
