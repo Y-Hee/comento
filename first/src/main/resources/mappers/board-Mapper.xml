@@ -7,10 +7,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 <insert id="create">
-insert into tbl_board (title, content, writer) 
-values(#{title},#{content}, #{writer})
+insert into tbl_board (bno, title, content, writer) 
+values(seq_board.nextval,#{title},#{content}, #{writer})
 </insert>
 
+<insert id="insertSelectKey">
+		<selectKey keyProperty="bno" order="BEFORE" resultType="long">
+			select seq_board.nextval from dual			
+		</selectKey>
+	
+		insert into tbl_board(bno, title, content, writer)
+		values(seq_board.nextval, #{title},#{content} ,#{writer})
+</insert>
 
 <select id="read" resultType="com.cmt.domain.BoardVO">
 select 

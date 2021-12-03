@@ -1,4 +1,4 @@
-package com.cmt.crud;
+package com.cmt.controller;
 
 import javax.inject.Inject;
 
